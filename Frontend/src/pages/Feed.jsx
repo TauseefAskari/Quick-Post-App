@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 const Feed = () => {
 
     const [posts, setPosts] = useState([
@@ -12,7 +14,7 @@ const Feed = () => {
     ])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/posts')
+        axios.get(`${apiUrl}/posts`)
         .then((response) => {
             setPosts(response.data.post)
         })
